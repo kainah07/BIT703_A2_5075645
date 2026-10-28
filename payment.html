@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment | Aotearoa Adventure Gear</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+
+    <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search,shopping_cart,arrow_back_ios,arrow_forward_ios,menu,north"
+    />
+</head>
+
+<body class="bg-white text-gray-900">
+  <!-- Header -->
+  <header class="relative flex items-center justify-between bg-white px-3 py-3 lg:bg-transparent md:px-10">
+      <div class="flex items-center gap-3 lg:gap-2">
+
+          <!-- Mobile menu button -->
+          <button
+          id="menu-button"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          class="flex items-center lg:hidden"
+          >
+          <span class="material-symbols-outlined">menu</span>
+          </button>
+
+          <!-- Logo -->
+          <a href="index.html">
+          <img
+              src="images/logo.png"
+              alt="Aotearoa Adventure Gear logo"
+              class="w-40 md:w-28 rounded-md"
+          >
+          </a>
+
+          <!-- Search Bar -->
+          <form action="shop.html" class="w-full search-form">
+              <!-- Desktop search bar -->
+              <div class="hidden h-12 justify-center gap-5 md:flex">
+                  <div class="flex w-100 max-w-md items-center gap-2 rounded-md border-2 px-2 backdrop-blur-[2px]">
+                  <span aria-hidden="true" class="material-symbols-outlined">search</span>
+                  <input
+                      type="search"
+                      name="search"
+                      placeholder="Search..."
+                      class="search-input flex-1 border-0 bg-transparent outline-none"
+                  >
+                  </div>
+              </div>
+          </form>
+
+
+      </div>
+
+  <!-- Desktop navigation -->
+  <nav aria-label="Main navigation" class="hidden items-center lg:flex">
+      <a href="index.html" class="border-r px-5 text-gray-600 hover:text-gray-900 xl:px-10">Home</a>
+      <a href="shop.html" class="border-r px-5 text-gray-600 hover:text-gray-900 xl:px-10">Shop</a>
+      <a href="index.html#about" class="border-r px-5 text-gray-600 hover:text-gray-900 xl:px-10">About</a>
+      <a href="index.html#help" class="px-5 text-gray-600 hover:text-gray-900 xl:px-10">Help</a>
+
+      <a
+      href="cart.html"
+      class="flex items-center gap-2 rounded-md bg-gray-700 px-4 py-2 text-white transition-colors duration-200 hover:bg-gray-800"
+      >
+      <span class="material-symbols-outlined cart-icon">shopping_cart</span>
+      Your Cart
+      </a>
+
+      </nav>
+      <!-- Mobile cart -->
+      <a href="cart.html" class="lg:hidden" aria-label="Shopping cart">
+          <span class="material-symbols-outlined cart-icon">shopping_cart</span>
+      </a>
+      <!-- Mobile dropdown menu -->
+      <nav
+          id="mobile-menu"
+          aria-label="Mobile navigation"
+          class="absolute left-0 top-full z-50 hidden w-full flex-col gap-5 border-y border-gray-300 bg-white p-5 lg:hidden"
+      >
+          <a href="index.html" class="text-gray-600 hover:text-gray-900">Home</a>
+          <a href="shop.html" class="text-gray-600 hover:text-gray-900">Shop</a>
+          <a href="index.html#about" class="text-gray-600 hover:text-gray-900">About</a>
+          <a href="index.html#help" class="text-gray-600 hover:text-gray-900">Help</a>
+
+          <form action="shop.html" method="get" class="search-form flex gap-2">
+              <!-- Mobile search bar -->
+              <div class="flex h-13 w-full items-center gap-2 rounded-md border border-gray-300 bg-gray-100 px-2 md:hidden">
+                  <span aria-hidden="true" class="material-symbols-outlined">search</span>
+                  <input
+                  type="search"
+                  name="search"
+                  placeholder="Search..."
+                  class="search-input min-w-0 flex-1 border-0 bg-transparent outline-none"
+                  >
+              </div>
+          </form>
+      </nav>
+
+  </header>
+  <main>
+    <!-- Checkout Steps -->
+    <section class="bg-gray-50 px-5 py-10 md:px-10">
+      <div class="grid grid-cols-3 border-b border-gray-300">
+        <div class="border-b border-gray-300 py-5">
+          <p class="text-center text-sm font-light md:text-xl">
+            1. Shopping Cart
+          </p>
+        </div>
+        <div class="border-b border-gray-300 py-5">
+          <p class="text-center text-sm font-light text-gray-700 md:text-xl">
+            2. Shipping Details
+          </p>
+        </div>
+        <div class="border-b border-gray-500 py-5">
+          <p class="text-center text-sm font-light text-gray-700 md:text-xl">
+            3. Payment Options
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid grid-cols-1 px-10 items-start gap-10 lg:grid-cols-3">
+
+      <!-- Payment Form -->
+      <section class="lg:col-span-2">
+
+        <h1 class="mb-5 border-b border-gray-300 pb-3 text-3xl font-light md:text-4xl">
+          Payment Method
+        </h1>
+
+        <form id="payment-form">
+
+          <!-- Credit Card -->
+          <div class="mb-5 border border-gray-300 p-5">
+
+            <label for="payment-card" class="flex cursor-pointer items-start gap-4">
+              <input
+                id="payment-card"
+                type="radio"
+                name="payment"
+                value="card"
+                checked
+                class="mt-1"
+              >
+
+              <div class="flex-1">
+                <span class="text-lg font-light">Credit Card</span>
+                <p class="mb-5 text-sm text-gray-400">
+                  Pay securely using your credit card.
+                </p>
+
+                <!-- Card Number -->
+                <div class="mb-4">
+                  <label for="card-number" class="sr-only">Card Number</label>
+                  <input
+                    id="card-number"
+                    name="cardNumber"
+                    type="text"
+                    inputmode="numeric"
+                    autocomplete="cc-number"
+                    placeholder="0000 0000 0000 0000"
+                    pattern="[0-9 ]{16,19}"
+                    title="Enter a valid 16-digit card number."
+                    required
+                    class="w-full border border-gray-300 px-4 py-3 outline-none focus:border-[#2F4B4D]"
+                  >
+                </div>
+
+                <!-- Expiry and CVV -->
+                <div class="mb-4 grid grid-cols-2 gap-4">
+                  <div>
+                    <label for="card-expiry" class="sr-only">Expiry Date</label>
+                    <input
+                      id="card-expiry"
+                      name="cardExpiry"
+                      type="text"
+                      inputmode="numeric"
+                      autocomplete="cc-exp"
+                      placeholder="MM / YY"
+                      pattern="(0[1-9]|1[0-2])\s*/\s*[0-9]{2}"
+                      title="Enter an expiry date such as 12/27."
+                      required
+                      class="w-full border border-gray-300 px-4 py-3 outline-none focus:border-[#2F4B4D]"
+                    >
+                  </div>
+
+                  <div>
+                    <label for="card-cvv" class="sr-only">CVV</label>
+                    <input
+                      id="card-cvv"
+                      name="cardCvv"
+                      type="password"
+                      inputmode="numeric"
+                      autocomplete="cc-csc"
+                      placeholder="CVV"
+                      pattern="[0-9]{3,4}"
+                      title="Enter a 3 or 4 digit CVV."
+                      required
+                      class="w-full border border-gray-300 px-4 py-3 outline-none focus:border-[#2F4B4D]"
+                    >
+                  </div>
+                </div>
+
+                <!-- Cardholder Name -->
+                <div>
+                  <label for="cardholder-name" class="sr-only">
+                    Cardholder Name
+                  </label>
+                  <input
+                    id="cardholder-name"
+                    name="cardholderName"
+                    type="text"
+                    autocomplete="cc-name"
+                    placeholder="Card Holder Name"
+                    required
+                    class="w-full border border-gray-300 px-4 py-3 outline-none focus:border-[#2F4B4D]"
+                  >
+                </div>
+              </div>
+            </label>
+          </div>
+
+          <!-- PayPal -->
+          <div class="border border-gray-300 p-5">
+            <label for="payment-paypal" class="flex cursor-pointer items-center gap-4">
+              <input
+                id="payment-paypal"
+                type="radio"
+                name="payment"
+                value="paypal"
+              >
+
+              <div class="flex-1">
+                <span class="text-lg font-light">PayPal</span>
+                <p class="text-sm text-gray-400">
+                  Pay using your PayPal account.
+                </p>
+              </div>
+
+              <img
+                src="images/paypal-logo.png"
+                alt="PayPal"
+                class="h-auto w-20 object-contain"
+                onerror="this.style.display='none'"
+              >
+            </label>
+          </div>
+
+          <p id="payment-error" class="mt-4 hidden text-sm text-red-600" role="alert"></p>
+
+          <!-- Desktop Buttons -->
+          <div class="mt-6 hidden gap-3 md:flex">
+            <button
+              type="submit"
+              class="bg-[#2F4B4D] px-10 py-3 text-white transition-colors hover:bg-gray-800"
+            >
+              Pay Now
+            </button>
+
+            <a
+              href="shipping.html"
+              class="bg-gray-200 px-10 py-3 text-center transition-colors hover:bg-gray-300"
+            >
+              Back
+            </a>
+          </div>
+
+        </form>
+      </section>
+
+      <!-- Order Summary -->
+      <!-- Order Summary -->
+      <aside class="md:mt-4">
+        <h2 class="pb-2 text-2xl font-light md:text-3xl">
+          Summary
+        </h2>
+
+        <!-- Cart products -->
+        <div id="shipping-cart-products" class="mb-5 p-5 border-y border-gray-300 pb-5">
+        </div>
+
+        <!-- Voucher -->
+        <div id="voucher-section" class="mb-6">
+          <button
+            id="toggle-voucher"
+            type="button"
+            class="w-full flex justify-between items-center border-b border-gray-300 text-left""
+          >
+            <span class="text-sm text-gray-500 pb-4 mb-4 ">HAVE A VOUCHER?</span>
+            <span id="voucher-arrow" class="text-gray-500 pb-4 mb-4 ">▼</span>
+          </button>
+
+          <div id="voucher-content" class="mb-5 hidden">
+            <form id="voucher-form" class="flex gap-2">
+              <input
+                id="voucher-code"
+                type="text"
+                placeholder="Voucher code"
+                class="h-10 w-full min-w-0 border px-3"
+              >
+
+              <button
+                type="submit"
+                class="bg-[#2F4B4D] px-4 text-white transition-colors hover:bg-gray-800"
+              >
+                Apply
+              </button>
+            </form>
+
+            <p id="voucher-message" class="mt-3 hidden text-sm"></p>
+          </div>
+        </div>
+
+        <!-- Subtotal -->
+        <div class="mb-4 flex justify-between">
+          <span>Subtotal</span>
+          <span id="shipping-subtotal">$0.00</span>
+        </div>
+
+        <!-- Coupon discount -->
+        <div id="shipping-coupon-row" class="mb-4 flex justify-between text-green-700">
+          <span>Coupon Discount</span>
+          <span id="shipping-coupon-discount">-$0.00</span>
+        </div>
+
+        <!-- Voucher discount -->
+        <div id="shipping-voucher-row" class="mb-4 flex justify-between text-green-700">
+          <span>Voucher Discount</span>
+          <span id="shipping-voucher-discount">-$0.00</span>
+        </div>
+
+        <!-- Shipping -->
+        <div class="mb-4 flex justify-between">
+          <span>Shipping</span>
+          <span id="shipping-cost">$0.00</span>
+        </div>
+
+        <!-- Taxes -->
+        <div class="mb-5 flex justify-between border-b border-gray-300 pb-5">
+          <span>Taxes</span>
+          <span id="shipping-taxes">$0.00</span>
+        </div>
+
+        <!-- Total -->
+        <div class="flex justify-between text-xl">
+          <span>Total</span>
+          <span id="shipping-total">$0.00</span>
+        </div>
+      </aside>
+
+      <!-- Mobile Buttons -->
+      <div class="flex justify-end gap-3 md:hidden lg:col-span-3">
+        <button
+          type="submit"
+          form="payment-form"
+          class="bg-[#2F4B4D] px-8 py-3 text-white hover:bg-gray-800"
+        >
+          Pay Now
+        </button>
+
+        <a
+          href="shipping.html"
+          class="bg-gray-200 px-6 py-3 hover:bg-gray-300"
+        >
+          Back
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+    <!-- Footer -->
+  <footer id="help" class="bg-gray-800 p-6 text-white md:p-12 mt-10">
+
+      <div class="flex flex-col md:flex-row justify-center mb-5">
+          <a href="index.html" class="border-r px-5 hover:text-gray-500 xl:px-10">Home</a>
+          <a href="shop.html" class="border-r px-5 hover:text-gray-500 xl:px-10">Shop</a>
+          <a href="index.html#about" class="border-r px-5  hover:text-gray-500 xl:px-10">About</a>
+          <a href="index.html#help" class="px-5  hover:text-gray-500 xl:px-10">Help</a>
+      </div>
+
+      <!-- Copyright -->
+      <div>
+          <hr class="mb-5 border-gray-500">
+
+          <p class="text-sm font-light text-center">
+              &copy; <span id="current-year"></span>
+              Aotearoa Adventure Gear. All rights reserved.
+          </p>
+      </div>
+
+  </footer>
+
+  <!-- Payment Success Modal -->
+  <div
+    id="success-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 p-5"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="success-title"
+  >
+    <div class="w-full max-w-md bg-white p-8 text-center shadow-xl">
+
+      <div class="mb-5 flex justify-center">
+        <div class="flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
+          <span class="text-3xl text-green-700">✓</span>
+        </div>
+      </div>
+
+      <h2 id="success-title" class="mb-3 text-2xl font-light">
+        Payment Successful
+      </h2>
+
+      <p class="mb-6 text-gray-500">
+        Thank you for your purchase! Your order has been successfully placed.
+      </p>
+
+      <button
+        id="continue-shopping"
+        type="button"
+        class="bg-[#2F4B4D] px-10 py-3 text-white hover:bg-gray-800"
+      >
+        Continue Shopping
+      </button>
+    </div>
+  </div>
+
+
+
+  <!-- Load shared scripts first -->
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/payment.js"></script>
+
+</body>
+</html>

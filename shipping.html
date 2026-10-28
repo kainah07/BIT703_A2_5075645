@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shipping Details | Aotearoa Adventure Gear</title>
+  <link rel="stylesheet" href="css/tailwind.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search,shopping_cart,arrow_back_ios,arrow_forward_ios,menu,north"
+    />
+</head>
+
+<body class="bg-white text-gray-900">
+
+  <!-- Header -->
+  <header class="relative flex items-center justify-between bg-white px-3 py-3 lg:bg-transparent md:px-10">
+      <!-- Left section: mobile menu, logo, and search -->
+      <div class="flex items-center gap-3 lg:gap-2">
+
+          <!-- Mobile menu button -->
+          <button
+          id="menu-button"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          class="flex items-center lg:hidden"
+          >
+          <span class="material-symbols-outlined">menu</span>
+          </button>
+
+          <!-- Logo -->
+          <a href="index.html">
+          <img
+              src="images/logo.png"
+              alt="Aotearoa Adventure Gear logo"
+              class="w-40 md:w-28 rounded-md"
+          >
+          </a>
+
+          <!-- Search Bar -->
+          <form action="shop.html" class="w-full search-form">
+              <!-- Desktop search bar -->
+              <div class="hidden h-12 justify-center gap-5 md:flex">
+                  <div class="flex w-100 max-w-md items-center gap-2 rounded-md border-2 px-2 backdrop-blur-[2px]">
+                  <span aria-hidden="true" class="material-symbols-outlined">search</span>
+                  <input
+                      type="search"
+                      name="search"
+                      placeholder="Search..."
+                      class="search-input flex-1 border-0 bg-transparent outline-none"
+                  >
+                  </div>
+              </div>
+          </form>
+
+
+      </div>
+
+  <!-- Desktop navigation -->
+  <nav aria-label="Main navigation" class="hidden items-center lg:flex">
+      <a href="index.html" class="border-r px-5 text-gray-600 hover:text-gray-900 xl:px-10">Home</a>
+      <a href="shop.html" class="border-r px-5 text-gray-600 hover:text-gray-900 xl:px-10">Shop</a>
+      <a href="index.html#about" class="border-r px-5 text-gray-600 hover:text-gray-900 xl:px-10">About</a>
+      <a href="index.html#help" class="px-5 text-gray-600 hover:text-gray-900 xl:px-10">Help</a>
+
+      <a
+      href="cart.html"
+      class="flex items-center gap-2 rounded-md bg-gray-700 px-4 py-2 text-white transition-colors duration-200 hover:bg-gray-800"
+      >
+      <span class="material-symbols-outlined cart-icon">shopping_cart</span>
+      Your Cart
+      </a>
+
+      </nav>
+      <!-- Mobile cart -->
+      <a href="cart.html" class="lg:hidden" aria-label="Shopping cart">
+          <span class="material-symbols-outlined cart-icon">shopping_cart</span>
+      </a>
+      <!-- Mobile dropdown menu -->
+      <nav
+          id="mobile-menu"
+          aria-label="Mobile navigation"
+          class="absolute left-0 top-full z-50 hidden w-full flex-col gap-5 border-y border-gray-300 bg-white p-5 lg:hidden"
+      >
+          <a href="index.html" class="text-gray-600 hover:text-gray-900">Home</a>
+          <a href="shop.html" class="text-gray-600 hover:text-gray-900">Shop</a>
+          <a href="index.html#about" class="text-gray-600 hover:text-gray-900">About</a>
+          <a href="index.html#help" class="text-gray-600 hover:text-gray-900">Help</a>
+
+          <form action="shop.html" method="get" class="search-form flex gap-2">
+              <!-- Mobile search bar -->
+              <div class="flex h-13 w-full items-center gap-2 rounded-md border border-gray-300 bg-gray-100 px-2 md:hidden">
+                  <span aria-hidden="true" class="material-symbols-outlined">search</span>
+                  <input
+                  type="search"
+                  name="search"
+                  placeholder="Search..."
+                  class="search-input min-w-0 flex-1 border-0 bg-transparent outline-none"
+                  >
+              </div>
+          </form>
+      </nav>
+
+  </header>
+
+  <main>
+    <!-- Checkout Steps -->
+    <section class="bg-gray-50 px-5 py-10 md:px-10">
+      <div class="grid grid-cols-3 border-b border-gray-300">
+        <div class="border-b border-gray-300 py-5">
+          <p class="text-center text-sm font-light md:text-xl">
+            1. Shopping Cart
+          </p>
+        </div>
+        <div class="border-b border-gray-500 py-5">
+          <p class="text-center text-sm font-light text-gray-700 md:text-xl">
+            2. Shipping Details
+          </p>
+        </div>
+        <div class="border-b border-transparent py-5">
+          <p class="text-center text-sm font-light text-gray-400 md:text-xl">
+            3. Payment Options
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid grid-cols-1 items-start gap-10 p-5 md:p-10 lg:grid-cols-3">
+
+      <!-- Shipping Form -->
+      <div class="lg:col-span-2">
+        <h1 class="mb-5 border-b border-gray-300 pb-2 text-2xl font-light md:text-3xl">
+          Shipping Details
+        </h1>
+
+        <form id="shipping-form" class="grid grid-cols-1 gap-5 md:grid-cols-2">
+
+          <input id="first-name" type="text" placeholder="First Name"
+            autocomplete="given-name" required class="border px-4 py-3">
+
+          <input id="last-name" type="text" placeholder="Last Name"
+            autocomplete="family-name" required class="border px-4 py-3">
+
+          <input id="address" type="text" placeholder="Address"
+            autocomplete="street-address" required
+            class="border px-4 py-3 md:col-span-2">
+
+          <input id="address2" type="text" placeholder="Address 2 (optional)"
+            class="border px-4 py-3 md:col-span-2">
+
+          <select id="country" required class="border px-4 py-3">
+            <option value="">Country</option>
+            <option value="nz">New Zealand</option>
+          </select>
+
+          <input id="city" type="text" placeholder="City"
+            list="cities" autocomplete="address-level2" required
+            class="border px-4 py-3">
+
+          <datalist id="cities">
+            <option value="Auckland"></option>
+            <option value="Christchurch"></option>
+            <option value="Dunedin"></option>
+            <option value="Hamilton"></option>
+            <option value="Queenstown"></option>
+            <option value="Tauranga"></option>
+            <option value="Wellington"></option>
+          </datalist>
+
+          <input id="postal-code" type="text" placeholder="Zip/Postal Code"
+            autocomplete="postal-code" required pattern="[0-9]{4}"
+            title="Please enter a 4-digit postal code."
+            class="border px-4 py-3">
+
+          <input id="phone" type="tel" placeholder="Phone Number"
+            autocomplete="tel" required pattern="(?:0|\+64)[0-9 ]{7,}"
+            title="Please enter a valid New Zealand phone number."
+            class="border px-4 py-3">
+
+          <div class="mt-5 grid grid-cols-1 gap-5 border-y border-gray-300 md:grid-cols-2 md:col-span-2">
+
+            <label class="my-5 flex cursor-pointer items-center gap-4 border p-5">
+              <input type="radio" name="shipping" value="standard" required>
+
+              <div>
+                <p id="standard-shipping-label" class="font-light">
+                  Standard Shipping
+                </p>
+                <p class="text-sm text-gray-400">
+                  Between 2-5 working days
+                </p>
+              </div>
+            </label>
+
+            <label class="my-5 flex cursor-pointer items-center gap-4 border p-5">
+              <input type="radio" name="shipping" value="next-day" required>
+
+              <div>
+                <p id="next-day-label" class="font-light">
+                  Next Day Delivery
+                </p>
+                <p class="text-sm text-gray-400">
+                  Usually within 24 hours
+                </p>
+              </div>
+            </label>
+
+          </div>
+
+          <div class="flex gap-3 md:col-span-2">
+            <button type="submit"
+              class="bg-[#2F4B4D] px-10 py-2 text-white transition-colors hover:bg-gray-800">
+              Next
+            </button>
+
+            <a href="cart.html"
+              class="bg-gray-200 px-10 py-2 transition-colors hover:bg-gray-300">
+              Back to Cart
+            </a>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Order Summary -->
+      <aside class="md:mt-4">
+        <h2 class="pb-2 text-2xl font-light md:text-3xl">
+          Summary
+        </h2>
+
+        <!-- Cart products -->
+        <div id="shipping-cart-products" class="mb-5 p-5 border-y border-gray-300 pb-5">
+        </div>
+
+        <!-- Voucher -->
+        <div id="voucher-section" class="mb-6">
+          <button
+            id="toggle-voucher"
+            type="button"
+            class="w-full flex justify-between items-center border-b border-gray-300 text-left""
+          >
+            <span class="text-sm text-gray-500 pb-4 mb-4 ">HAVE A VOUCHER?</span>
+            <span id="voucher-arrow" class="text-gray-500 pb-4 mb-4 ">▼</span>
+          </button>
+
+          <div id="voucher-content" class="mb-5 hidden">
+            <form id="voucher-form" class="flex gap-2">
+              <input
+                id="voucher-code"
+                type="text"
+                placeholder="Voucher code"
+                class="h-10 w-full min-w-0 border px-3"
+              >
+
+              <button
+                type="submit"
+                class="bg-[#2F4B4D] px-4 text-white transition-colors hover:bg-gray-800"
+              >
+                Apply
+              </button>
+            </form>
+
+            <p id="voucher-message" class="mt-3 hidden text-sm"></p>
+          </div>
+        </div>
+
+        <!-- Subtotal -->
+        <div class="mb-4 flex justify-between">
+          <span>Subtotal</span>
+          <span id="shipping-subtotal">$0.00</span>
+        </div>
+
+        <!-- Coupon discount -->
+        <div id="shipping-coupon-row" class="mb-4 flex justify-between text-green-700">
+          <span>Coupon Discount</span>
+          <span id="shipping-coupon-discount">-$0.00</span>
+        </div>
+
+        <!-- Voucher discount -->
+        <div id="shipping-voucher-row" class="mb-4 flex justify-between text-green-700">
+          <span>Voucher Discount</span>
+          <span id="shipping-voucher-discount">-$0.00</span>
+        </div>
+
+        <!-- Shipping -->
+        <div class="mb-4 flex justify-between">
+          <span>Shipping</span>
+          <span id="shipping-cost">$0.00</span>
+        </div>
+
+        <!-- Taxes -->
+        <div class="mb-5 flex justify-between border-b border-gray-300 pb-5">
+          <span>Taxes</span>
+          <span id="shipping-taxes">$0.00</span>
+        </div>
+
+        <!-- Total -->
+        <div class="flex justify-between text-xl">
+          <span>Total</span>
+          <span id="shipping-total">$0.00</span>
+        </div>
+      </aside>
+
+
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="help" class="bg-gray-800 p-6 text-white md:p-12">
+
+      <div class="flex flex-col md:flex-row justify-center mb-5">
+          <a href="index.html" class="border-r px-5 hover:text-gray-500 xl:px-10">Home</a>
+          <a href="shop.html" class="border-r px-5 hover:text-gray-500 xl:px-10">Shop</a>
+          <a href="index.html#about" class="border-r px-5  hover:text-gray-500 xl:px-10">About</a>
+          <a href="index.html#help" class="px-5  hover:text-gray-500 xl:px-10">Help</a>
+      </div>
+
+      <!-- Copyright -->
+      <div>
+          <hr class="mb-5 border-gray-500">
+
+          <p class="text-sm font-light text-center">
+              &copy; <span id="current-year"></span>
+              Aotearoa Adventure Gear. All rights reserved.
+          </p>
+      </div>
+
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/shipping.js"></script>
+</body>
+</html>
